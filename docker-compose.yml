@@ -1,0 +1,14 @@
+services:
+  runner:
+    build:
+      context: ./runner
+      dockerfile: Dockerfile
+      args:
+        - GITHUB_URL_REPO_NAME=
+        - ONE_TIME_REGISTRATION_TOKEN=
+        - LABELS=my-action-runner,my-tag
+        - RUNNER_NAME=my-action-runner
+    container_name: my-action-runner
+    image: my-action-runner:latest
+    pull_policy: never
+    restart: unless-stopped
